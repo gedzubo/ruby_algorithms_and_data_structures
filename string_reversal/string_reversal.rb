@@ -1,3 +1,10 @@
+# frozen_string_literal: true
+
+# This method reverses the string letters.
+#
+# Examples (Input -> Output):
+# abc -> cba
+# 1234 -> 4321
 def string_reversal(str)
   start_point = 0
   end_point = str.size - 1
@@ -13,5 +20,3 @@ def string_reversal(str)
 
   str
 end
-
-puts string_reversal("abcd_1234")
