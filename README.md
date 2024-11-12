@@ -1,1 +1,3 @@
-# ruby_algorithms_and_data_structures
+# Ruby Algorithms and Data Structures
+
+Exploring algorithms and data structures by doing common "leetcode" exercises (using ruby programming language).
