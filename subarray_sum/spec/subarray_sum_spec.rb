@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-require_relative '../sub_array_sum'
+require_relative '../subarray_sum'
 
 describe '#sum' do
   test_scenarios = [
