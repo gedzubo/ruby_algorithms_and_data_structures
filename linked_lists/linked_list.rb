@@ -81,5 +81,24 @@ class LinkedList
     temp
   end
 
+  def get(index)
+    return nil if index.negative? || index >= lenght
+
+    temp = head
+    index.times do
+      temp = temp.next
+    end
+
+    temp
+  end
+
+  def set(index, value)
+    temp = get(index)
+    return false if temp.nil?
+
+    temp.value = value
+    true
+  end
+
   attr_accessor :head, :tail, :lenght
 end
