@@ -41,7 +41,6 @@ class LinkedList
       temp = temp.next_node
     end
 
-    puts previous
     @tail = previous
     @tail.next_node = nil
     @lenght -= 1
@@ -50,6 +49,34 @@ class LinkedList
       @head = nil
       @tail = nil
     end
+
+    temp
+  end
+
+  def unshift(value)
+    new_node = Node.new(value)
+
+    if head.nil?
+      @head = new_node
+      @tail = head
+    else
+      new_node.next_node = head
+      @head = new_node
+    end
+    @lenght += 1
+
+    self
+  end
+
+  def shift
+    return nil if head.nil?
+
+    temp = head
+    @head = head.next
+    temp.next_node = nil
+    @lenght -= 1
+
+    @tail = nil if lenght.zero?
 
     temp
   end
