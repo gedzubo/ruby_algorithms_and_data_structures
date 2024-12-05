@@ -134,6 +134,8 @@ class LinkedList
 
   def print
     temp = head
+    return nil if head.nil?
+
     path = temp.value
 
     while temp.next_node
