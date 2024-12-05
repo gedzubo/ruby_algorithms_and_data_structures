@@ -132,5 +132,18 @@ class LinkedList
     node_to_delete
   end
 
+  def print
+    temp = head
+    path = temp.value
+
+    while temp.next_node
+      temp = temp.next_node
+
+      path += temp.value
+    end
+
+    path
+  end
+
   attr_accessor :head, :tail, :lenght
 end
