@@ -19,6 +19,6 @@ describe '#middle_node' do
   let(:e) { Node.new('E') }
 
   it 'finds the middle node' do
-    expect(middle_node(a).name).to eq(c.name)
+    expect(middle_node(a).value).to eq(c.value)
   end
 end
