@@ -72,7 +72,7 @@ class LinkedList
     return nil if head.nil?
 
     temp = head
-    @head = head.next
+    @head = head.next_node
     temp.next_node = nil
     @lenght -= 1
 

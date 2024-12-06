@@ -94,4 +94,46 @@ describe LinkedList do
       end
     end
   end
+
+  describe '#shift' do
+    context 'when the list is empty' do
+      it 'returns nil as there is nothing to shift' do
+        expect(subject.shift).to eq(nil)
+      end
+    end
+
+    context 'when the list contains 1 node' do
+      before do
+        subject.push('A')
+      end
+
+      it 'removes the node' do
+        shifted_node = subject.shift
+
+        expect(shifted_node.value).to eq('A')
+
+        expect(subject.head).to eq(nil)
+        expect(subject.tail).to eq(nil)
+        expect(subject.lenght).to eq(0)
+      end
+    end
+
+    context 'when the list contains multiple nodes' do
+      before do
+        subject.push('A')
+        subject.push('B')
+        subject.push('C')
+      end
+
+      it 'removes the first node from the list' do
+        shifted_node = subject.shift
+
+        expect(shifted_node.value).to eq('A')
+
+        expect(subject.head.value).to eq('B')
+        expect(subject.tail.value).to eq('C')
+        expect(subject.lenght).to eq(2)
+      end
+    end
+  end
 end
