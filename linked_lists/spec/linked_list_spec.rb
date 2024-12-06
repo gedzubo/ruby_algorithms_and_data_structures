@@ -72,4 +72,26 @@ describe LinkedList do
       end
     end
   end
+
+  describe '#unshift' do
+    context 'when the list is empty' do
+      it 'adds a note to the front of the list' do
+        subject.unshift('A')
+
+        expect(subject.print).to eq('A')
+        expect(subject.lenght).to eq(1)
+      end
+    end
+
+    context 'when the list contains nodes' do
+      subject { described_class.new('B') }
+
+      it 'adds a note to the front of the list' do
+        subject.unshift('A')
+
+        expect(subject.print).to eq('AB')
+        expect(subject.lenght).to eq(2)
+      end
+    end
+  end
 end
