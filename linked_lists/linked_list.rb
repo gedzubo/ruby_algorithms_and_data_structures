@@ -86,7 +86,7 @@ class LinkedList
 
     temp = head
     index.times do
-      temp = temp.next
+      temp = temp.next_node
     end
 
     temp
