@@ -159,4 +159,31 @@ describe LinkedList do
       end
     end
   end
+
+  describe '#set' do
+    context 'when provided index is outside of boundaries of the linked list' do
+      it 'returns false' do
+        expect(subject.set(-1, 'A')).to eq(false)
+        expect(subject.set(2, 'B')).to eq(false)
+      end
+
+      context 'when provided index is inside the boundaries of the linked list' do
+        before do
+          subject.push('A')
+          subject.push('B')
+          subject.push('C')
+        end
+
+        it 'changes the value of the requested node' do
+          subject.set(0, 'D')
+          subject.set(1, 'E')
+          subject.set(2, 'F')
+
+          expect(subject.get(0).value).to eq('D')
+          expect(subject.get(1).value).to eq('E')
+          expect(subject.get(2).value).to eq('F')
+        end
+      end
+    end
+  end
 end
