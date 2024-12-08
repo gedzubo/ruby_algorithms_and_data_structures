@@ -186,4 +186,27 @@ describe LinkedList do
       end
     end
   end
+
+  describe '#insert' do
+    context 'when provided index is outside of boundaries of the linked list' do
+      it 'returns nil' do
+        expect(subject.insert(-1, 'A')).to eq(false)
+        expect(subject.insert(2, 'A')).to eq(false)
+      end
+    end
+
+    context 'when provided index is inside the boundaries of the linked list' do
+      before do
+        subject.push('B')
+        subject.push('D')
+      end
+
+      it 'inserts the node to the requested location' do
+        subject.insert(0, 'A')
+        subject.insert(2, 'C')
+
+        expect(subject.print).to eq('ABCD')
+      end
+    end
+  end
 end
