@@ -118,13 +118,13 @@ class LinkedList
 
   def delete(index)
     return nil if index.negative? || index >= lenght
-    return shift(value) if index.zero?
+    return shift if index.zero?
     return pop if index == lenght - 1
 
     previous_node = get(index - 1)
-    node_to_delete = previous_node.next
+    node_to_delete = previous_node.next_node
 
-    previous_node.next_node = node_to_deletet.next_node
+    previous_node.next_node = node_to_delete.next_node
     node_to_delete.next_node = nil
 
     @lenght -= 1

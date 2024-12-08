@@ -189,7 +189,7 @@ describe LinkedList do
 
   describe '#insert' do
     context 'when provided index is outside of boundaries of the linked list' do
-      it 'returns nil' do
+      it 'returns false' do
         expect(subject.insert(-1, 'A')).to eq(false)
         expect(subject.insert(2, 'A')).to eq(false)
       end
@@ -206,6 +206,33 @@ describe LinkedList do
         subject.insert(2, 'C')
 
         expect(subject.print).to eq('ABCD')
+      end
+    end
+  end
+
+  describe '#delete' do
+    context 'when provided index is outside of boundaries of the linked list' do
+      it 'returns nil' do
+        expect(subject.delete(-1)).to eq(nil)
+        expect(subject.delete(2)).to eq(nil)
+      end
+    end
+
+    context 'when provided index is inside the boundaries of the linked list' do
+      before do
+        subject.push('A')
+        subject.push('B')
+        subject.push('C')
+        subject.push('D')
+        subject.push('E')
+      end
+
+      it 'deletes requested node' do
+        expect(subject.delete(0).value).to eq('A')
+        expect(subject.delete(1).value).to eq('C')
+        expect(subject.delete(2).value).to eq('E')
+
+        expect(subject.print).to eq('BD')
       end
     end
   end
