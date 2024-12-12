@@ -33,4 +33,21 @@ class BinarySearchTree
       end
     end
   end
+
+  def contains?(value)
+    return false if root.nil?
+
+    temp = root
+    until temp.nil?
+      if value < temp.value
+        temp = temp.left
+      elsif value > temp.value
+        temp = temp.right
+      else
+        return true
+      end
+    end
+
+    false
+  end
 end
