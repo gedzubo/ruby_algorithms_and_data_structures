@@ -31,6 +31,38 @@ class DoublyLinkedList
     self
   end
 
+  def pop
+    return nil if tail.nil?
+
+    temp = tail
+    @tail = tail.previous_node
+    tail.next_node = nil
+    temp.previous_node = nil
+    @lenght -= 1
+
+    if lenght.zero?
+      @head = nil
+      @tail = nil
+    end
+
+    temp
+  end
+
+  def unshift(value)
+    new_node = Node.new(value)
+    if lenght.zero?
+      @head = new_node
+      @tail = new_node
+    else
+      new_node.next_node = head
+      head.previous_node = new_node
+      @head = new_node
+    end
+    @lenght += 1
+
+    self
+  end
+
   def print
     temp = head
     return nil if head.nil?
