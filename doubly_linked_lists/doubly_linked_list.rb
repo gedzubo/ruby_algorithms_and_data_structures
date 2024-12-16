@@ -35,15 +35,15 @@ class DoublyLinkedList
     return nil if tail.nil?
 
     temp = tail
-    @tail = tail.previous_node
-    tail.next_node = nil
-    temp.previous_node = nil
-    @lenght -= 1
-
-    if lenght.zero?
+    if lenght == 1
       @head = nil
       @tail = nil
+    else
+      @tail = tail.previous_node
+      tail.next_node = nil
+      temp.previous_node = nil
     end
+    @lenght -= 1
 
     temp
   end
@@ -61,6 +61,23 @@ class DoublyLinkedList
     @lenght += 1
 
     self
+  end
+
+  def shift
+    return nil if lenght.zero?
+
+    temp = head
+    if lenght == 1
+      @head = nil
+      @tail = nil
+    else
+      @head = head.next_node
+      head.previous_node = nil
+      temp.next_node = nil
+    end
+    @lenght -= 1
+
+    temp
   end
 
   def print
