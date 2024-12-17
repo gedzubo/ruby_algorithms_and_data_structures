@@ -136,4 +136,27 @@ describe DoublyLinkedList do
       end
     end
   end
+
+  describe '#get' do
+    context 'when provided index is outside of boundaries of the linked list' do
+      it 'returns nil' do
+        expect(subject.get(-1)).to eq(nil)
+        expect(subject.get(2)).to eq(nil)
+      end
+    end
+
+    context 'when provided index is inside the boundaries of the linked list' do
+      before do
+        subject.push('A')
+        subject.push('B')
+        subject.push('C')
+      end
+
+      it 'returns the requested node' do
+        expect(subject.get(0).value).to eq('A')
+        expect(subject.get(1).value).to eq('B')
+        expect(subject.get(2).value).to eq('C')
+      end
+    end
+  end
 end

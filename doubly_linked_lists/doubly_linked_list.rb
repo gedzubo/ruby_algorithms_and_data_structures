@@ -80,6 +80,24 @@ class DoublyLinkedList
     temp
   end
 
+  def get(index)
+    return nil if index.negative? || index >= lenght
+
+    if index < lenght / 2
+      temp = head
+      index.times { temp = temp.next_node }
+    else
+      temp = tail
+      i = lenght - 1
+      while i > index
+        temp = temp.previous_node
+        i -= 1
+      end
+    end
+
+    temp
+  end
+
   def print
     temp = head
     return nil if head.nil?
