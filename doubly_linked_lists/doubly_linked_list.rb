@@ -98,6 +98,14 @@ class DoublyLinkedList
     temp
   end
 
+  def set(index, value)
+    temp = get(index)
+    return false if temp.nil?
+
+    temp.value = value
+    true
+  end
+
   def print
     temp = head
     return nil if head.nil?
