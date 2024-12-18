@@ -106,6 +106,25 @@ class DoublyLinkedList
     true
   end
 
+  def insert(index, value)
+    return false if index.negative? || index >= lenght
+    return unshift(value) if index.zero?
+    return push(value) if index == lenght
+
+    new_node = Node.new(value)
+    before = get(index - 1)
+    after = before.next_node
+
+    before.next_node = new_node
+    new_node.previous_node = before
+    new_node.next_node = after
+    after.previous_node = new_node
+
+    @lenght += 1
+
+    true
+  end
+
   def print
     temp = head
     return nil if head.nil?
