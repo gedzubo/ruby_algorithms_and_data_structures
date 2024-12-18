@@ -236,4 +236,18 @@ describe DoublyLinkedList do
       end
     end
   end
+
+  describe '#print' do
+    before do
+      subject.push('A')
+      subject.push('B')
+      subject.push('C')
+      subject.push('D')
+      subject.push('E')
+    end
+
+    it 'displays the whole linked list as a string value' do
+      expect(subject.print).to eq('ABCDE')
+    end
+  end
 end
