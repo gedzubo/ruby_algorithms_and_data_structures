@@ -125,6 +125,22 @@ class DoublyLinkedList
     true
   end
 
+  def delete(index)
+    return nil if index.negative? || index >= lenght
+    return shift if index.zero?
+    return pop if index == lenght - 1
+
+    temp = get(index)
+    temp.previous_node.next_node = temp.next_node
+    temp.next_node.previous_node = temp.previous_node
+    temp.previous_node = nil
+    temp.next_node = nil
+
+    @lenght -= 1
+
+    temp
+  end
+
   def print
     temp = head
     return nil if head.nil?
