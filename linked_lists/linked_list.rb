@@ -147,5 +147,25 @@ class LinkedList
     path
   end
 
+  def reverse
+    return nil if head.nil?
+
+    temp = head
+    previous = nil
+    next_node = nil
+
+    while temp
+      next_node = temp.next_node
+      temp.next_node = previous
+      previous = temp
+      temp = next_node
+    end
+
+    @tail = head
+    @head = previous
+
+    self
+  end
+
   attr_accessor :head, :tail, :lenght
 end

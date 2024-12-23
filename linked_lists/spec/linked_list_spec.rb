@@ -250,4 +250,20 @@ describe LinkedList do
       expect(subject.print).to eq('ABCDE')
     end
   end
+
+  describe '#reverse' do
+    before do
+      subject.push('A')
+      subject.push('B')
+      subject.push('C')
+      subject.push('D')
+      subject.push('E')
+    end
+
+    it 'reverses the linked list' do
+      subject.reverse
+
+      expect(subject.print).to eq('EDCBA')
+    end
+  end
 end
