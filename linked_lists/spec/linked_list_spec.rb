@@ -266,4 +266,18 @@ describe LinkedList do
       expect(subject.print).to eq('EDCBA')
     end
   end
+
+  describe '#find_middle_node' do
+    before do
+      subject.push('A')
+      subject.push('B')
+      subject.push('C')
+      subject.push('D')
+      subject.push('E')
+    end
+
+    it 'returns the middle node of the linked list' do
+      expect(subject.find_middle_node.value).to eq('C')
+    end
+  end
 end
