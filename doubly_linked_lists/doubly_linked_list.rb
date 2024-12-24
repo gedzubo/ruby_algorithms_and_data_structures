@@ -141,6 +141,22 @@ class DoublyLinkedList
     temp
   end
 
+  def palindrome?
+    return false if head.nil?
+
+    left_point = head
+    right_point = tail
+
+    while left_point != right_point && left_point.previous_node != right_point
+      return false if left_point.value != right_point.value
+
+      left_point = left_point.next_node
+      right_point = right_point.previous_node
+    end
+
+    true
+  end
+
   def print
     temp = head
     return nil if head.nil?

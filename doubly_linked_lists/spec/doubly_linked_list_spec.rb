@@ -237,6 +237,36 @@ describe DoublyLinkedList do
     end
   end
 
+  describe '#palindorome?' do
+    context 'when the linked list is a palindrome' do
+      before do
+        subject.push('A')
+        subject.push('B')
+        subject.push('C')
+        subject.push('B')
+        subject.push('A')
+      end
+
+      it 'returns true' do
+        expect(subject.palindrome?).to eq(true)
+      end
+    end
+
+    context 'when the linked list is not a palindrome' do
+      before do
+        subject.push('A')
+        subject.push('B')
+        subject.push('C')
+        subject.push('D')
+        subject.push('E')
+      end
+
+      it 'returns false' do
+        expect(subject.palindrome?).to eq(false)
+      end
+    end
+  end
+
   describe '#print' do
     before do
       subject.push('A')
