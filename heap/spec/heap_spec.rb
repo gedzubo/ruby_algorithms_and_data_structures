@@ -32,4 +32,28 @@ describe Heap do
       end
     end
   end
+
+  describe '#remove' do
+    context 'when the heap is empty' do
+      it 'returns nil' do
+        expect(subject.remove).to be_nil
+      end
+    end
+
+    context 'when the heap has some elements' do
+      before do
+        subject.insert(5)
+        subject.insert(10)
+        subject.insert(15)
+        subject.insert(20)
+        subject.insert(1)
+        subject.insert(8)
+      end
+
+      it 'removes the root element from the heap' do
+        expect(subject.remove).to eq(20)
+        expect(subject.print_heap).to eq([15, 8, 10, 5, 1])
+      end
+    end
+  end
 end

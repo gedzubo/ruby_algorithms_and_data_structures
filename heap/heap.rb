@@ -16,6 +16,17 @@ class Heap
     end
   end
 
+  def remove
+    return nil if heap.empty?
+    return heap.pop if heap.length == 1
+
+    max_value = heap[0]
+    heap[0] = heap.pop
+    sink_down(0)
+
+    max_value
+  end
+
   def print_heap
     heap
   end
@@ -38,5 +49,23 @@ class Heap
 
   def swap(index1, index2)
     heap[index1], heap[index2] = heap[index2], heap[index1]
+  end
+
+  def sink_down(index)
+    max_index = index
+    size = heap.size
+    loop do
+      left = left_child(max_index)
+      right = right_child(max_index)
+
+      max_index = left if left < size && heap[left] > heap[max_index]
+
+      max_index = right if right < size && heap[right] > heap[max_index]
+
+      break unless max_index != index
+
+      swap(index, max_index)
+      index = max_index
+    end
   end
 end
