@@ -33,4 +33,49 @@ class BinarySearchTree
       contains?(value, current_node.right)
     end
   end
+
+  def bfs
+    queue = [root]
+    result = []
+
+    until queue.empty?
+      current_node = queue.shift
+      result << current_node.value
+
+      queue << current_node.left if current_node.left
+      queue << current_node.right if current_node.right
+    end
+
+    result
+  end
+
+  def dfs_pre_order(current_node = root, result = [])
+    return if current_node.nil?
+
+    result << current_node.value
+    dfs_pre_order(current_node.left, result)
+    dfs_pre_order(current_node.right, result)
+
+    result
+  end
+
+  def dfs_post_order(current_node = root, result = [])
+    return if current_node.nil?
+
+    dfs_post_order(current_node.left, result)
+    dfs_post_order(current_node.right, result)
+    result << current_node.value
+
+    result
+  end
+
+  def dfs_in_order(current_node = root, result = [])
+    return if current_node.nil?
+
+    dfs_in_order(current_node.left, result)
+    result << current_node.value
+    dfs_in_order(current_node.right, result)
+
+    result
+  end
 end
