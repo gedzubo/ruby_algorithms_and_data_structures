@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Space complexity: O(n)
+# Time complexity: O(n log n)
 def merge_sort(array)
   return array if array.length <= 1
 
