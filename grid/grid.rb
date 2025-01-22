@@ -22,5 +22,15 @@ class Grid
     output
   end
 
+  def fill_row(row, value)
+    grid[row].fill(value)
+  end
+
+  def fill_column(column, value)
+    grid.each do |row|
+      row[column] = value
+    end
+  end
+
   attr_reader :rows, :columns, :grid
 end
