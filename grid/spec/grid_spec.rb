@@ -35,4 +35,20 @@ describe Grid do
       expect(subject.print).to eq("O X O\nO X O\nO X O\n")
     end
   end
+
+  describe '#fill_diagonal' do
+    it 'fills the diagonal with a value' do
+      subject.fill_diagonal('X')
+
+      expect(subject.print).to eq("X O O\nO X O\nO O X\n")
+    end
+  end
+
+  describe '#fill_reverse_diagonal' do
+    it 'fills the reverse diagonal with a value' do
+      subject.fill_reverse_diagonal('X')
+
+      expect(subject.print).to eq("O O X\nO X O\nX O O\n")
+    end
+  end
 end

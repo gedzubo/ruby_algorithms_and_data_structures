@@ -32,5 +32,17 @@ class Grid
     end
   end
 
+  def fill_diagonal(value)
+    grid.each_with_index do |row, index|
+      row[index] = value
+    end
+  end
+
+  def fill_reverse_diagonal(value)
+    grid.each_with_index do |row, index|
+      row[grid.size - 1 - index] = value
+    end
+  end
+
   attr_reader :rows, :columns, :grid
 end
