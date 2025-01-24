@@ -5,10 +5,12 @@ class Grid
     @rows = rows
     @columns = columns
     @grid = Array.new(rows) { Array.new(columns, 'O') }
+    @values = []
   end
 
   def insert(row, column, value)
     grid[row][column] = value
+    values << value unless values.include?(value)
   end
 
   def print
@@ -44,5 +46,9 @@ class Grid
     end
   end
 
-  attr_reader :rows, :columns, :grid
+  def check_if_value_is_in_the_grid?(value)
+    values.include?(value)
+  end
+
+  attr_reader :rows, :columns, :grid, :values
 end

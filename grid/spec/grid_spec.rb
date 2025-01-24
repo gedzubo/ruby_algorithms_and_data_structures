@@ -51,4 +51,16 @@ describe Grid do
       expect(subject.print).to eq("O O X\nO X O\nX O O\n")
     end
   end
+
+  describe '#check_if_value_is_in_the_grid?' do
+    it 'returns true if the value is in the grid' do
+      subject.insert(1, 1, 'X')
+
+      expect(subject.check_if_value_is_in_the_grid?('X')).to be true
+    end
+
+    it 'returns false if the value is not in the grid' do
+      expect(subject.check_if_value_is_in_the_grid?('X')).to be false
+    end
+  end
 end
