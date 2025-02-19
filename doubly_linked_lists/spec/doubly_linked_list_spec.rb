@@ -280,4 +280,35 @@ describe DoublyLinkedList do
       expect(subject.print).to eq('ABCDE')
     end
   end
+
+  describe '#reverse_print' do
+    before do
+      subject.push('A')
+      subject.push('B')
+      subject.push('C')
+      subject.push('D')
+      subject.push('E')
+    end
+
+    it 'displays the whole linked list in reverse order as a string value' do
+      expect(subject.reverse_print).to eq('EDCBA')
+    end
+  end
+
+  describe '#reverse' do
+    before do
+      subject.push('A')
+      subject.push('B')
+      subject.push('C')
+      subject.push('D')
+      subject.push('E')
+    end
+
+    it 'reverses the linked list' do
+      subject.reverse
+
+      expect(subject.print).to eq('EDCBA')
+      expect(subject.reverse_print).to eq('ABCDE')
+    end
+  end
 end

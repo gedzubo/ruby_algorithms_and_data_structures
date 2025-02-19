@@ -158,9 +158,9 @@ class DoublyLinkedList
   end
 
   def print
-    temp = head
     return nil if head.nil?
 
+    temp = head
     path = temp.value
 
     while temp.next_node
@@ -170,6 +170,41 @@ class DoublyLinkedList
     end
 
     path
+  end
+
+  def reverse_print
+    return nil if tail.nil?
+
+    temp = tail
+    path = temp.value
+
+    while temp.previous_node
+      temp = temp.previous_node
+
+      path += temp.value
+    end
+
+    path
+  end
+
+  def reverse
+    return self if lenght < 2
+
+    previous_head = head
+    previous_tail = tail
+
+    current = head
+    while current
+      temp = current.next_node
+      current.next_node = current.previous_node
+      current.previous_node = temp
+      current = temp
+    end
+
+    @head = previous_tail
+    @tail = previous_head
+
+    self
   end
 
   attr_accessor :head, :tail, :lenght
